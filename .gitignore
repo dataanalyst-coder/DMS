@@ -1,0 +1,32 @@
+# secrets and local state: never commit these
+backend/secret.key
+backend/seed_credentials.txt
+backend/die_mgmt.db
+backend/die_mgmt.db-shm
+backend/die_mgmt.db-wal
+backend/storage/
+backend/backups/
+*.key
+.env
+.env.*
+
+# dependencies and build output
+.venv/
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# local AI / editor tool folders and configs (they hold tokens and machine paths)
+.mcp.json
+.jetro/
+.agents/
+.claude/
+.cursor/
+.windsurfrules
+.github/copilot-instructions.md
+AGENT.md
+CLAUDE.md
+data/
+projects/
