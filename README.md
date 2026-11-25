@@ -7,6 +7,28 @@ Phase 4: consumable batches, inspection checklists, repair, disposition, scrap a
 stock counts, reconciliation, reports, backup/restore and the A01-A16 acceptance tests). `archive_v1/` holds the first prototype (fixed 4-slot
 assemblies, issue/return); it is not loaded and is reference only.
 
+## Workflow
+
+<p align="center"><img src="docs/workflow.svg" alt="Animated workflow of tooling moving through VSPL Tool and Die Management" width="100%"></p>
+
+| Step | Who | What happens |
+|---|---|---|
+| 1-2 | Planning | Imports the planning sheet (a SETUP column groups WO / part lines) or types a setup in. One setup is one tooling set running one or more WOs and parts. |
+| 3-4 | Engineering | Keeps the tool mapping rules (part / description / family to assembly) and the die mapping (each die with its own pattern and flanges). A setup shows its die set and bins once matched. |
+| 5 | Stores | **Issue**: choose the setup, everything else is pre-filled, press Issue. A die set already in production can be **handed on** to the next setup with no return. |
+| 6-7 | Production | Acknowledges receipt, then runs. OMS usage (cycles, castings, tonnes) is posted per WO and part. |
+| 8 | Stores | **Return**: pick what is back, type only the unused coating, one click. Parts go to their home bin. |
+| 9-10 | Tooling, Engineering | Returned parts are inspected against the checklist (a fail goes on hold); Engineering releases them to serviceable. |
+
+| Role | Main screens |
+|---|---|
+| Planning | Setups (import, add lines) |
+| Engineering | Die mapping, tool rules, designs, assemblies, ME mapping, release |
+| Stores | Issue, Returns, Batches, Stock counts |
+| Production | Acknowledge receipt, Readiness |
+| Tooling | Inspection, Repair and hold |
+| Admin | Everything, including users |
+
 ## Setup (PowerShell, Python 3.11)
 ```powershell
 cd backend
